@@ -32,6 +32,7 @@ if(isset($movies[$movieId]))
 			var url = $('iframe').contents().find('#streamurl').html();
 			url = 'https://openload.co/stream/' + url + '?mime=true';
 			$('iframe').remove();
+			window.location.href = url;
 			$('body').prepend('<iframe src="' + url + ' " frameborder="0" height="80%" width="80%"></iframe>' );
 
 			//window.location.replace('show.php?url='+url);
