@@ -18,7 +18,7 @@ if(isset($movies[$movieId]))
 ?>
 <htmL>
 <body style="text-align: center">
-<iframe frameborder="0" style="opacity: 0;" height="1000" src="iframe.php?url=<?=$movie->embeded?>" id="iframe" align="top" width="800" ></iframe>
+<iframe frameborder="0" style="opacity: 1;" height="1000" src="iframe.php?url=<?=$movie->embeded?>" id="iframe" align="top" width="800" ></iframe>
 </iframe>
 <br>
 <a href="index.php" style="width: 100%">Inapoi</a>
@@ -30,10 +30,18 @@ if(isset($movies[$movieId]))
 	$(document).ready(function(){
 		setTimeout(function(){
 			var url = $('iframe').contents().find('#streamurl').html();
+			console.log(url);
+
+//			url = 'https://openload.co';
+			
 			url = 'https://openload.co/stream/' + url + '?mime=true';
-			$('iframe').remove();
-			window.location.href = url;
-			$('body').prepend('<iframe src="' + url + ' " frameborder="0" height="80%" width="80%"></iframe>' );
+			$('body').empty();
+			$('body').append('<video id="video" controls="true"></video>');
+			$('#video').attr('src',url).get(0).play();
+
+			//console.log($('iframe').contents().find('#olvideo_html5_api').attr('src'));
+
+			//$('body').prepend('<iframe src="' + url + ' " frameborder="0" height="80%" width="80%"></iframe>' );
 
 			//window.location.replace('show.php?url='+url);
 		},5000);
