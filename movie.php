@@ -35,7 +35,7 @@ if(isset($movies[$movieId]))
 			$('body').prepend('<iframe src="' + url + ' " frameborder="0" height="80%" width="80%"></iframe>' );
 
 			//window.location.replace('show.php?url='+url);
-		},1000);
+		},5000);
 	});
 </script>
 </htmL>
