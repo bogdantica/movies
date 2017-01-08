@@ -32,12 +32,14 @@ if(isset($movies[$movieId]))
 			var url = $('iframe').contents().find('#streamurl').html();
 			console.log(url);
 			url = url.split('~');
+			console.log(url);
 			url[2] = "86.127.0.0";
 			url = url.join('~');
+			console.log(url);
 //			url = 'https://openload.co';
 			//https://openload.co/stream/RUuUw_RGTNI~1483980077~86.127.0.0~hyy8SWbQ?mime=true
 			url = 'https://openload.co/stream/' + url + '?mime=true';
-			url =
+
 			$('body').empty();
 			$('body').append('<video id="video" controls="true"></video>');
 			$('#video').attr('src',url).get(0).play();
